@@ -1,4 +1,4 @@
-from opcua import Opcua
+from archuni import Archuni
 
-test = Opcua()
+opcua = Archuni()
 
