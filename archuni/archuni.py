@@ -1,13 +1,5 @@
 #necessary import for opcua connection
-from opcua import ua, uamethod, Server
-from opcua.ua import ObjectIds
-import netifaces as ni
-
-import time
-import datetime
-import board
-import adafruit_dht
-import RPi.GPIO as GPIO
+from opcua import Server
 
 class Archuni:
     server = None
@@ -17,12 +9,15 @@ class Archuni:
         self.server = Server()
         self.client = Client()
 
-        print("Hello World!")
-
 class Server:
     def __init__(self) -> None:
-        print("Server")
+        # required variables for server config
+        # ip address where server is running
+        # namespace
+        # objektname 
+        # ordnernamen (temperatur, messdaten etc.)
+        print("Server...")
 
 class Client:
     def __init__(self) -> None:
-        print("Client")
+        print("Client...")

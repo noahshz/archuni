@@ -1,6 +1,6 @@
 from archuni import Archuni
 
-opcua = Archuni()
+op = Archuni()
 
 
 
