@@ -10,6 +10,8 @@ class Archuni:
         self.client = Client()
 
 class Server:
+    _config = None
+
     def __init__(self) -> None:
         # required variables for server config
         # ip address where server is running
@@ -17,6 +19,8 @@ class Server:
         # objektname 
         # ordnernamen (temperatur, messdaten etc.)
         print("Server...")
+    def loadConfig(self) -> bool:
+        print("Sh")
 
 class Client:
     def __init__(self) -> None:
