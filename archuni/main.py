@@ -1,6 +1,8 @@
 from archuni import Archuni
 import time
+from server import OPCUAServer
 
+'''
 op = Archuni()
 
 
@@ -25,3 +27,21 @@ try:
         time.sleep(1)
 except KeyboardInterrupt:
     op.server.stop()
+'''
+
+srv = OPCUAServer()
+
+srv.start()
+
+srv.debug()
+
+try:
+    run = 0
+    while True:
+        srv.push(10)
+        print("Run: " + str(run))
+        run = run + 1
+
+        time.sleep(1)
+except KeyboardInterrupt:
+    srv.stop()
