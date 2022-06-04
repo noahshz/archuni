@@ -64,14 +64,21 @@ class Arch_Server:
         pass
     
     def start(self) -> None:
-        self._server.start()
+        try:
+            self._server.start()
+        except:
+            print("Starting server failed...")
+            pass
 
-        x = 0
-        while True:
-            self._variable.set_value(5)
-            print("Run: " + str(x))
-            x = x + 1
-            time.sleep(1)
+        try:
+            x = 0
+            while True:
+                self._variable.set_value(5)
+                print("Run: " + str(x))
+                x = x + 1
+                time.sleep(1)
+        except KeyboardInterrupt:
+            self._server.stop()
 
     def loadConfig(self, config: dict) -> bool:
         if 'ip_address' in config and 'namespace' in config and 'node' in config and 'folder' in config and 'variable' in config:
