@@ -8,9 +8,9 @@ config = {
     'namespace' : 'archuni',
     'node' : 'projekt',
     'folder' : 'roller',
-    'variables' : {'speed' : '100'}
+    'variable' : {'speed' : '100'}
 }
 
-op.server.loadConfig(config)
+#op.server.loadConfig(config)
 
-print("process")
+op.server.start()
