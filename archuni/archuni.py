@@ -1,7 +1,6 @@
 #necessary import for opcua connection
 import time
 from opcua import Server
-from opcua.ua import ObjectIds as ua
 
 class Archuni:
     server = None
@@ -60,26 +59,19 @@ class Arch_Server:
             else:
                 print("\t" + item + " : " + self._config[item])
         print("-" * 100)
-
         pass
-    
     def start(self) -> None:
         try:
             self._server.start()
         except:
-            print("Starting server failed...")
+            print("[Error] : Starting server failed...")
             pass
-
-        try:
-            x = 0
-            while True:
-                self._variable.set_value(5)
-                print("Run: " + str(x))
-                x = x + 1
-                time.sleep(1)
-        except KeyboardInterrupt:
-            self._server.stop()
-
+    def stop(self) -> None:
+        self._server.stop()
+        pass
+    def push(self, value) -> None:
+        self._variable.set_value(5)
+        pass
     def loadConfig(self, config: dict) -> bool:
         if 'ip_address' in config and 'namespace' in config and 'node' in config and 'folder' in config and 'variable' in config:
             self._config = config
@@ -87,7 +79,6 @@ class Arch_Server:
         else:
             print("[Error] : Missing parameter in passed config")
             return False
-            exit()
 
 class Arch_Client:
     def __init__(self) -> None:
