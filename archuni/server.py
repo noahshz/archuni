@@ -60,7 +60,7 @@ class OPCUAServer:
     def stop(self) -> None:
         self._server.stop()
         pass
-    def push(self, value) -> None:
+    def push(self, value: float) -> None:
         self._variable.set_value(value)
         pass
     def loadConfig(self, config: dict) -> bool:

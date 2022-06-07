@@ -9,7 +9,7 @@ srv.start()
 try:
     run = 0
     while True:
-        srv.push(10)
+        srv.push(10.0)
         #temperaturdaten
         print("Run: " + str(run))
         run = run + 1
