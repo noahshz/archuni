@@ -61,7 +61,7 @@ class OPCUAServer:
         self._server.stop()
         pass
     def push(self, value) -> None:
-        self._variable.set_value(5)
+        self._variable.set_value(value)
         pass
     def loadConfig(self, config: dict) -> bool:
         if 'ip_address' in config and 'namespace' in config and 'node' in config and 'folder' in config and 'variable' in config:
