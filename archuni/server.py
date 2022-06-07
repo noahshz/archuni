@@ -51,15 +51,20 @@ class OPCUAServer:
                 print("\t" + item + " : " + self._config[item])
         print("-" * 100)
         pass
-    def start(self) -> None:
+    def start(self) -> bool:
         try:
             self._server.start()
+            return True
         except:
             print("[Error] : Starting server failed...")
-            pass
-    def stop(self) -> None:
-        self._server.stop()
-        pass
+            return False
+    def stop(self) -> bool:
+        try:
+            self._server.stop()
+            return True
+        except:
+            print("[Error] : Verbindungsabbruch nicht möglich.")
+            return False
     def push(self, value: float) -> None:
         self._variable.set_value(value)
         pass

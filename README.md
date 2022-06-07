@@ -1,9 +1,14 @@
 # archuni
 a class for opc ua (opc uniform architecture) handling in python
 
-# Anforderungen:
+# SERVER + CLIENT:
 - opcua package (pip install opcua)
-- cryptography (pip install cryptography)
+
+
+
+
+# Sensor
+-adafriut (pip install adafruit-circuitpython-dht)
 
 
 
