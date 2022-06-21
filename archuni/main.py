@@ -7,7 +7,17 @@ sensor = Sensor()
 sensor.setPIN(4)
 sensor.prepare()
 
+con = {
+    'ip_address' : '10.62.255.50',
+    'namespace' : 'archuni',
+    'node' : 'robby',
+    'folder' : 'temp_sensor',
+    'variable' : {'key' : 'temperatur', 'value' : '0.0'}
+}
+
+
 srv = OPCUAServer()
+srv.loadConfig(con)
 srv.start()
 #srv.debug()
 
