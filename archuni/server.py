@@ -3,7 +3,7 @@ from opcua import ua,Server
 
 class OPCUAServer:
     _config = {
-        'ip_address' : '10.62.255.50',
+        'ip_address' : '127.0.0.1',
         'namespace' : 'archuni',
         'node' : 'robby',
         'folder' : 'temp_sensor',
@@ -69,6 +69,7 @@ class OPCUAServer:
     def loadConfig(self, config: dict) -> bool:
         if 'ip_address' in config and 'namespace' in config and 'node' in config and 'folder' in config and 'variable' in config:
             self._config = config
+            self.__init__()
             return True
         else:
             print("[Error] : Missing parameter in passed config")
