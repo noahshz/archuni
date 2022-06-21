@@ -1,6 +1,11 @@
 import time
 from server import OPCUAServer
+from sensor import Sensor
 
+#Sensor wird vorbereitet
+sensor = Sensor()
+sensor.setPIN(4)
+sensor.prepare()
 
 srv = OPCUAServer()
 srv.start()
@@ -9,9 +14,11 @@ srv.start()
 try:
     run = 0
     while True:
-        srv.push(10.0)
+        temp = sensor.getTemp()
+        #push sensor daten
+        srv.push(temp)
         #temperaturdaten
-        print("Run: " + str(run))
+        print(f"Run: {str(run)} Temp: {temp}")
         run = run + 1
 
         time.sleep(1)
