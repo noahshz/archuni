@@ -1,9 +1,9 @@
 import time
-from opcua import Server
+from opcua import ua,Server
 
 class OPCUAServer:
     _config = {
-        'ip_address' : '127.0.0.1',
+        'ip_address' : '10.62.255.50',
         'namespace' : 'archuni',
         'node' : 'robby',
         'folder' : 'temp_sensor',
@@ -22,11 +22,9 @@ class OPCUAServer:
         self._server_url = "opc.tcp://"+ self._config['ip_address'] +":4840"
         self._server.set_endpoint(self._server_url)
 
-        '''
         self._server.set_security_policy([
-            "asduizgas786t7td6as7t6asd7ftdas7fgt"
+            ua.SecurityPolicyType.NoSecurity
         ])
-        '''
 
         #initialise opcua namespace
         self._namespace = self._server.register_namespace(self._config['namespace'])
