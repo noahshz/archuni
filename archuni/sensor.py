@@ -6,7 +6,8 @@ import time
 class Sensor:
     _sensorPIN = 0
     _dhtDevice = None
-    _temperature = 0
+    _temperature = None
+    _humidity = None
 
     def __init__(self) -> None:
         pass
@@ -21,6 +22,7 @@ class Sensor:
 
         self._dhtDevice = adafruit_dht.DHT22(board.D4, use_pulseio=False)
         self._temperature = 0
+        self._humidity = 0
 
         print(f"Sensor prepared with sensor-pin {self._sensorPIN}")
         pass    
@@ -32,3 +34,11 @@ class Sensor:
             time.sleep(1.0)
             return 0.0
         return self._temperature
+    def getHumidity(self) -> float:
+        try:
+            self._humidity = self._dhtDevice.humidity
+        except RuntimeError as error:
+            print(error.args[0])
+            time.sleep(1.0)
+            return 0.0
+        return self._humidity
