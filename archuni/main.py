@@ -2,11 +2,12 @@ import time
 from server import OPCUAServer
 from sensor import Sensor
 
-#Sensor wird vorbereitet
+# Sensor wird vorbereitet
 sensor = Sensor()
 sensor.setPIN(4)
 sensor.prepare()
 
+# Server wird vorbereitet und gestartet
 con = {
     'ip_address' : '10.62.255.50',
     'namespace' : 'archuni',

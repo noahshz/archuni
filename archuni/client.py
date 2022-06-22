@@ -35,5 +35,6 @@ opc = OPCUAClient()
 opc.connect("127.0.0.1")
 
 print(opc.pull("ns=2;i=3"))
+print(opc.pull("ns=2;i=4"))
 
 opc.disconnect()
